@@ -1,6 +1,6 @@
-This program generates output suitable for the dot program from graphviz.
-
-It produces dependency graphs between the various different library modules in LVM2.
+This program generates output suitable for the dot program from
+graphviz.  It produces dependency graphs between the various different
+library modules in LVM2.
 
 You must run this program from within the top level directory of the
 LVM2 source.  In addition you must have built LVM2 so that the
@@ -24,10 +24,10 @@ like structure with no cycles.
 
 
 
-If you syspect there are cycles use this to draw a graph of just the
-strongly couple components.  ie. just the cycles.  Hopefully this
+If you suspect there are cycles use this to draw a graph of just the
+strongly coupled components.  ie. just the cycles.  Hopefully this
 graph is empty, or just has 2 node clusters that can be fixed easily.
-Alas this isn't currently the case for LVM2.
+Alas this isn't currently the case for LVM2 :(
 
     > lvm_deps --cycles | dot -Tpdf -o ~/work/dependency-calculator/modules.pdf
 
