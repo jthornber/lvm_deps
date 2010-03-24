@@ -1,0 +1,33 @@
+This program generates output suitable for the dot program from graphviz.
+
+It produces dependency graphs between the various different library modules in LVM2.
+
+You must run this program from within the top level directory of the
+LVM2 source.  In addition you must have built LVM2 so that the
+symbolic links in include/ are present - since the program needs these
+to work out what modules are being referenced.
+
+Example usage:
+
+Draw a directed graph of all dependencies.  Hopefully this will
+produce a nicely layered graph, with no cycles.
+
+    > lvm_deps --all | dot -Tpdf -o ~/work/dependency-calculator/modules.pdf
+
+
+
+Perhaps we're only interested in the libraries directly and indirectly
+used by a particular module.  Again, we're looking for a nice tree
+like structure with no cycles.
+
+    > lvm_deps --reachable=lib/commands | dot -Tpdf -o ~/work/dependency-calculator/modules.pdf
+
+
+
+If you syspect there are cycles use this to draw a graph of just the
+strongly couple components.  ie. just the cycles.  Hopefully this
+graph is empty, or just has 2 node clusters that can be fixed easily.
+Alas this isn't currently the case for LVM2.
+
+    > lvm_deps --cycles | dot -Tpdf -o ~/work/dependency-calculator/modules.pdf
+
