@@ -12,7 +12,7 @@ Example usage:
 Draw a directed graph of all dependencies.  Hopefully this will
 produce a nicely layered graph, with no cycles.
 
-    > lvm_deps --all | dot -Tpdf -o ~/work/dependency-calculator/modules.pdf
+    > lvm_deps --all | dot -Tpdf -o all_modules.pdf
 
 
 
@@ -20,7 +20,7 @@ Perhaps we're only interested in the libraries directly and indirectly
 used by a particular module.  Again, we're looking for a nice tree
 like structure with no cycles.
 
-    > lvm_deps --reachable=lib/commands | dot -Tpdf -o ~/work/dependency-calculator/modules.pdf
+    > lvm_deps --reachable=lib/commands | dot -Tpdf -o commands_modules.pdf
 
 
 
@@ -29,5 +29,5 @@ strongly coupled components.  ie. just the cycles.  Hopefully this
 graph is empty, or just has 2 node clusters that can be fixed easily.
 Alas this isn't currently the case for LVM2 :(
 
-    > lvm_deps --cycles | dot -Tpdf -o ~/work/dependency-calculator/modules.pdf
+    > lvm_deps --cycles | dot -Tpdf -o cycles_modules.pdf
 
